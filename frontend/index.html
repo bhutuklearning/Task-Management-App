@@ -12,47 +12,128 @@
     <script src="https://kit.fontawesome.com/fd8a74da96.js" crossorigin="anonymous"></script>
 </head>
 <body
-      class="flex flex-col min-h-screen bg-gradient-to-tr from-blue-100 via-white to-blue-200 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+      class="flex flex-col min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 text-gray-900 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 dark:text-gray-100 transition-colors duration-300">
     <!-- HERO SECTION -->
     <main class="flex-grow flex flex-col items-center justify-center px-4 py-10">
-        <div class="w-full max-w-4xl bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-8">
-            <div class="text-center mb-8">
-                <h1 class="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-4">📝 Task Manager App</h1>
-                <p class="text-xl text-gray-600 dark:text-gray-300">Organize your tasks efficiently and boost your
-                    productivity</p>
-            </div>
-            <div class="grid md:grid-cols-2 gap-8 mb-8">
-                <div class="bg-blue-50 dark:bg-gray-700 p-6 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-600 dark:text-blue-400 mb-3">✨ Key Features</h3>
-                    <ul class="space-y-2 text-gray-700 dark:text-gray-300">
-                        <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Create and manage personal tasks
-                        </li>
-                        <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Track completion status</li>
-                        <li><i class="fas fa-check-circle text-green-500 mr-2"></i> User authentication system</li>
-                        <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Responsive design for all devices
-                        </li>
-                    </ul>
+        <div class="w-full max-w-6xl">
+            <!-- Hero Content -->
+            <div class="text-center mb-12">
+                <div
+                     class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl shadow-lg mb-6">
+                    <i class="fas fa-tasks text-white text-4xl"></i>
                 </div>
-                <div class="bg-blue-50 dark:bg-gray-700 p-6 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-600 dark:text-blue-400 mb-3">🚀 Get Started</h3>
-                    <p class="text-gray-700 dark:text-gray-300 mb-4">Ready to organize your tasks? Login to your account
-                        or create a new one to get started.</p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="login.html"
-                           class="py-2 px-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition duration-200 text-center">
-                            Login </a>
-                        <a href="register.html"
-                           class="py-2 px-6 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition duration-200 text-center">
-                            Register </a>
+                <h1
+                    class="text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent mb-4">
+                    Task Manager </h1>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"> Streamline your workflow with
+                    powerful task management. Organize, prioritize, and accomplish your goals efficiently. </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <!-- Key Features Card -->
+                <div
+                     class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                    <div
+                         class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl w-12 h-12 flex items-center justify-center mb-6">
+                        <i class="fas fa-star text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Key Features</h3>
+                    <div class="space-y-4">
+                        <div
+                             class="flex items-start p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                            <div class="bg-blue-100 dark:bg-blue-900/30 rounded-lg p-2 mr-4 flex-shrink-0">
+                                <i class="fas fa-tasks text-blue-600 dark:text-blue-400 text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">Task Management</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Create and manage personal tasks</p>
+                            </div>
+                        </div>
+                        <div
+                             class="flex items-start p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                            <div class="bg-green-100 dark:bg-green-900/30 rounded-lg p-2 mr-4 flex-shrink-0">
+                                <i class="fas fa-chart-line text-green-600 dark:text-green-400 text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">Track Progress</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Monitor completion status</p>
+                            </div>
+                        </div>
+                        <div
+                             class="flex items-start p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                            <div class="bg-purple-100 dark:bg-purple-900/30 rounded-lg p-2 mr-4 flex-shrink-0">
+                                <i class="fas fa-shield-alt text-purple-600 dark:text-purple-400 text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">Secure Access</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Protected authentication</p>
+                            </div>
+                        </div>
+                        <div
+                             class="flex items-start p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                            <div class="bg-indigo-100 dark:bg-indigo-900/30 rounded-lg p-2 mr-4 flex-shrink-0">
+                                <i class="fas fa-mobile-alt text-indigo-600 dark:text-indigo-400 text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">Responsive Design</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Works on all devices</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <!-- Get Started Card -->
+                <div
+                     class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                    <div
+                         class="bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl w-12 h-12 flex items-center justify-center mb-6">
+                        <i class="fas fa-rocket text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Get Started</h3>
+                    <p class="text-gray-700 dark:text-gray-300 mb-6"> Ready to boost your productivity? Join thousands
+                        of users managing their tasks efficiently. </p>
+                    <div class="flex flex-col gap-4">
+                        <a href="login.html"
+                           class="w-full py-3 px-6 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-xl transition-all duration-200 text-center shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
+                            <i class="fas fa-sign-in-alt"></i> Login </a>
+                        <a href="register.html"
+                           class="w-full py-3 px-6 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-semibold rounded-xl transition-all duration-200 text-center shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
+                            <i class="fas fa-user-plus"></i> Register </a>
+                    </div>
+                </div>
+                <!-- About Card -->
+                <div
+                     class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                    <div
+                         class="bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl w-12 h-12 flex items-center justify-center mb-6">
+                        <i class="fas fa-lightbulb text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">About</h3>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed"> Built with cutting-edge technologies
+                        including Node.js, Express, MongoDB, and modern frontend frameworks. Experience seamless task
+                        management with robust authentication and real-time updates. </p>
+                </div>
             </div>
-            <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg">
-                <h3 class="text-xl font-semibold text-blue-600 dark:text-blue-400 mb-3">💡 About This Project</h3>
-                <p class="text-gray-700 dark:text-gray-300"> This Task Manager application demonstrates a full-stack
-                    implementation with a Node.js backend using Express and MongoDB, and a frontend built with HTML,
-                    CSS, and JavaScript. The application features user authentication, CRUD operations for todos, and a
-                    responsive design. </p>
+            <!-- Additional Info Cards -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Technology Stack -->
+                <div
+                     class="bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-6 border border-gray-200 dark:border-gray-600">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-code text-2xl text-blue-600 dark:text-blue-400 mr-4"></i>
+                        <h4 class="text-lg font-bold text-gray-900 dark:text-white">Technology Stack</h4>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm"> Node.js + Express backend with MongoDB for data
+                        persistence. Frontend powered by modern JavaScript with responsive Tailwind CSS design. </p>
+                </div>
+                <!-- Why Choose Us -->
+                <div
+                     class="bg-gradient-to-br from-gray-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-6 border border-gray-200 dark:border-gray-600">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-shield-alt text-2xl text-indigo-600 dark:text-indigo-400 mr-4"></i>
+                        <h4 class="text-lg font-bold text-gray-900 dark:text-white">Secure & Reliable</h4>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm"> Your data is protected with secure
+                        authentication protocols. Focus on productivity, we handle security. </p>
+                </div>
             </div>
         </div>
     </main>

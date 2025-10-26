@@ -29,6 +29,28 @@ app.use(logger);
 app.use('/api/auth', authRoutes);
 app.use('/api/todos', todoRoutes);
 
+
+// Pinging the server to keep it awake
+// Endpoint to ping
+app.get('/ping', (req, res) => {
+    res.status(200).send('Pong!');
+});
+
+// Function to ping the server every 5 minutes
+function pingServer() {
+    const url = `${process.env.BACKEND_URL}/ping` || `http://localhost:${process.env.PORT}/ping`;
+    axios.get(url)
+        .then(() => console.log('Pinged server at', new Date().toLocaleString()))
+        .catch(err => console.error('Error pinging server:', err.message));
+}
+
+// Ping every 10 minutes (600,000 milliseconds)
+setInterval(pingServer, 600000);
+
+app.get('/health', (req, res) => {
+    res.send('OK');
+});
+
 app.use(errorHandler);
 
 
@@ -46,9 +68,7 @@ app.use(errorHandler);
 
 // }
 
-app.get('/health', (req, res) => {
-    res.send('OK');
-});
+
 
 
 const PORT = process.env.PORT || 5000;

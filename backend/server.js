@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
+import axios from 'axios';
 import connectDB from './config/db.js';
 import authRoutes from './routes/auth.js';
 import todoRoutes from './routes/todos.js';

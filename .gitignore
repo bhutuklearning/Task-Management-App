@@ -40,3 +40,8 @@ Thumbs.db
 dist/
 build/
 *.map
+
+# CSS files
+frontend/css/
+css/
+*.css

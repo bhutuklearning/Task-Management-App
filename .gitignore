@@ -1,17 +1,31 @@
+# Dependencies
 node_modules/
-.env
+package-lock.json
 
+# Environment variables
+.env
+.env.*
+
+# Zip files
+*.zip
+backend.zip
+frontend.zip
+
+# Frontend files
+frontend/
+frontend_outline.txt
+tailwind.config.js
+tiptap-setup.js
+theme.js
+style.css
+styles.css
+
+# Test/Temporary files
 createadmin.js
 home1.html
 profil1.html
 profile1.html
 profile1.js
-package-lock.json
 
-
-frontend/frontend_outline.txt
-backend.zip
-frontend.zip
-
-frontend/css/style.css
-frontend/css/styles.css
+# CSS and directories
+css/

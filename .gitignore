@@ -45,3 +45,11 @@ build/
 frontend/css/
 css/
 *.css
+
+# JavaScript configuration files
+frontend/js/tailwind.config.js
+frontend/js/theme.js
+frontend/js/tiptap-setup.js
+tailwind.config.js
+theme.js
+tiptap-setup.js

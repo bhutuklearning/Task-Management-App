@@ -11,21 +11,32 @@ package-lock.json
 backend.zip
 frontend.zip
 
-# Frontend files
-frontend/
-frontend_outline.txt
-tailwind.config.js
-tiptap-setup.js
-theme.js
-style.css
-styles.css
-
 # Test/Temporary files
 createadmin.js
 home1.html
-profil1.html
 profile1.html
 profile1.js
+frontend_outline.txt
+frontend/frontend_outline.txt
 
-# CSS and directories
-css/
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Build files
+dist/
+build/
+*.map

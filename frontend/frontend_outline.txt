@@ -1,0 +1,17 @@
+/frontend
+│
+├── index.html              → Login Page
+├── register.html           → Signup Page
+├── home.html               → Main Todo Dashboard
+├── create.html             → Create/Update Todo
+├── profile.html            → Profile Dashboard (user/admin)
+│
+├── css/
+│   └── style.css           → Global Styles (dark/light modes)
+│
+├── js/
+│   ├── auth.js             → Login/Register Logic
+│   ├── home.js             → Fetch & Render Todos
+│   ├── create.js           → Create/Update Logic
+│   ├── profile.js          → Load profile info (user/admin)
+│   └── theme.js            → Theme Toggle Logic

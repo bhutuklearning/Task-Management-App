@@ -1,0 +1,474 @@
+/* css/style.css
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg);
+    color: var(--text);
+    transition: background 0.3s ease;
+}
+
+:root {
+    --bg: #ffffff;
+    --text: #000000;
+}
+
+body.dark {
+    --bg: #121212;
+    --text: #ffffff;
+}
+
+.container {
+    max-width: 400px;
+    margin: 10% auto;
+    padding: 30px;
+    background-color: var(--bg);
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
+}
+
+input,
+button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #999;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+} */
+
+/* Reset & Base */
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    transition: background 0.3s ease;
+    padding: 20px;
+}
+
+:root {
+    --bg: #ffffff;
+    --text: #000000;
+    --card-bg: #f5f5f5;
+    --primary: #007bff;
+    --primary-hover: #0056b3;
+}
+
+body.dark {
+    --bg: #121212;
+    --text: #ffffff;
+    --card-bg: #1e1e1e;
+    --primary: #1e90ff;
+    --primary-hover: #4682b4;
+}
+
+
+.container {
+    max-width: 500px;
+    margin: auto;
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
+form input,
+form textarea,
+form button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: var(--primary-hover);
+}
+
+
+.todo-card {
+    background: var(--card-bg);
+    margin-bottom: 20px;
+    padding: 15px 20px;
+    border-left: 5px solid var(--primary);
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.todo-card h3 {
+    margin-bottom: 10px;
+}
+
+.todo-card button {
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+
+.fab {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 55px;
+    height: 55px;
+    font-size: 28px;
+    font-weight: bold;
+    background-color: var(--primary);
+    color: white;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.fab:hover {
+    background-color: var(--primary-hover);
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+nav h2 {
+    font-size: 1.5rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a,
+nav ul li button {
+    text-decoration: none;
+    color: var(--text);
+    background: none;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+nav ul li button:hover,
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+
+#profileContent {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+@media screen and (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================================
+   BASE STYLING + DARK/LIGHT MODE
+================================= */
+:root {
+    --bg: #ffffff;
+    --text: #1a1a1a;
+    --primary: #007bff;
+    --primary-hover: #0056b3;
+    --card-bg: #f1f1f1;
+    --nav-bg: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+body.dark {
+    --bg: #121212;
+    --text: #ffffff;
+    --primary: #1e90ff;
+    --primary-hover: #4682b4;
+    --card-bg: #1f1f1f;
+    --nav-bg: #1a1a1a;
+    --shadow: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+/* =================
+    NAVBAR STYLING
+================== */
+nav {
+    background-color: var(--nav-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px var(--shadow);
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+nav h2 {
+    font-size: 1.5rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a,
+nav ul li button {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 6px 12px;
+    transition: all 0.2s ease;
+}
+
+nav ul li a:hover,
+nav ul li button:hover {
+    background-color: var(--primary);
+    color: white;
+    border-radius: 6px;
+}
+
+/* =================
+    TODO CARDS
+================== */
+#todoList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    #todoList {
+        grid-template-columns: 1fr;
+    }
+}
+
+.todo-card {
+    background-color: var(--card-bg);
+    border-left: 4px solid var(--primary);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px var(--shadow);
+}
+
+.todo-card h3 {
+    margin-bottom: 8px;
+}
+
+.todo-card button {
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: none;
+    background-color: var(--primary);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.todo-card button:hover {
+    background-color: var(--primary-hover);
+}
+
+/* =================
+   FAB BUTTON
+================== */
+.fab {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+.fab:hover {
+    background-color: var(--primary-hover);
+}
+
+/* =================
+   FORM + INPUTS
+================== */
+form {
+    max-width: 500px;
+    margin: auto;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button[type='submit'] {
+    width: 100%;
+    background-color: var(--primary);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* =================
+   PROFILE BOX
+================== */
+#profileContent {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px var(--shadow);
+    max-width: 600px;
+    margin: auto;
+}
+
+.hamburger {
+    display: none;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text);
+}
+
+.nav-brand {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+
+
+/* =================
+   MOBILE NAVBAR
+================== */
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+        padding: 10px 0;
+        border-top: 1px solid #ccc;
+        background-color: var(--nav-bg);
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        padding: 10px 0;
+    }
+}

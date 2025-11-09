@@ -4,72 +4,120 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/jpg+xml" href="./assets/logo.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home - Task Manager App</title>
+    <title>My Tasks - Task Manager App</title>
     <script src="https://kit.fontawesome.com/fd8a74da96.js" crossorigin="anonymous"></script>
-    <!-- Tailwind – class-based dark mode -->
+    <!-- Tailwind CSS -->
     <script>
-        window.tailwind = window.tailwind || {}
-        window.tailwind.config = { darkMode: 'class' }
+        window.tailwind = window.tailwind || {};
+        window.tailwind.config = { darkMode: 'class' };
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="flex flex-col min-h-screen
-             bg-gray-100 text-gray-900
-             dark:bg-gray-900 dark:text-gray-100
-             transition-colors duration-300">
+<body class="flex flex-col min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 text-gray-900 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 dark:text-gray-100 transition-colors duration-300">
     <!-- NAVBAR -->
-    <nav class="bg-white dark:bg-gray-800 shadow-md">
-        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-            <h1 class="text-xl font-bold text-purple-600 dark:text-purple-300">📝 Task Manager</h1>
-            <div class="hidden md:flex items-center space-x-6">
-                <a href="home.html" class="hover:text-purple-600 dark:hover:text-purple-400">Home</a>
-                <a href="create.html" class="hover:text-purple-600 dark:hover:text-purple-400">Create</a>
-                <a href="profile.html" class="hover:text-purple-600 dark:hover:text-purple-400">Profile</a>
-                <button onclick="logout()" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md"> Logout
+    <nav class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-md">
+                        <i class="fas fa-tasks text-white text-lg"></i>
+                    </div>
+                    <h1 class="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
+                        Task Manager
+                    </h1>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="home.html" class="text-blue-600 dark:text-blue-400 font-semibold hover:text-blue-700 dark:hover:text-blue-300 transition-colors flex items-center gap-2">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                    <a href="create.html" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2">
+                        <i class="fas fa-plus-circle"></i> Create
+                    </a>
+                    <a href="profile.html" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2">
+                        <i class="fas fa-user-circle"></i> Profile
+                    </a>
+                    <button onclick="logout()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg flex items-center gap-2">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="menu-toggle" class="md:hidden text-gray-700 dark:text-gray-300 focus:outline-none p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
                 </button>
             </div>
-            <button id="menu-toggle" class="md:hidden text-gray-700 dark:text-gray-300 focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 space-y-2">
-            <a href="home.html" class="block text-purple-700 text-center">Home</a>
-            <a href="create.html" class="block text-purple-700 text-center">Create</a>
-            <a href="profile.html" class="block text-purple-700 text-center">Profile</a>
-            <button onclick="logout()" class="block w-full text-center bg-red-500 text-white px-3 py-2 rounded-md">
-                Logout </button>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-2 space-y-2">
+                <a href="home.html" class="block px-4 py-2 text-blue-600 dark:text-blue-400 font-semibold bg-blue-50 dark:bg-blue-900/20 rounded-lg text-center transition-colors">
+                    <i class="fas fa-home mr-2"></i> Home
+                </a>
+                <a href="create.html" class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-center transition-colors">
+                    <i class="fas fa-plus-circle mr-2"></i> Create
+                </a>
+                <a href="profile.html" class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-center transition-colors">
+                    <i class="fas fa-user-circle mr-2"></i> Profile
+                </a>
+                <button onclick="logout()" class="block w-full px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-colors text-center">
+                    <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                </button>
+            </div>
         </div>
     </nav>
+
     <!-- MAIN CONTENT -->
-    <main class="flex-grow max-w-5xl mx-auto py-10 px-4">
-        <h2 class="text-2xl font-semibold text-purple-600 dark:text-purple-300 mb-6"> ✨ My Tasks </h2>
-        <div id="todoList" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <!-- cards injected by js/home.js -->
+    <main class="flex-grow max-w-7xl mx-auto w-full py-10 px-4 sm:px-6 lg:px-8">
+        <!-- Header Section -->
+        <div class="mb-8">
+            <div class="flex items-center gap-3 mb-2">
+                <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <i class="fas fa-tasks text-white text-xl"></i>
+                </div>
+                <h2 class="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
+                    My Tasks
+                </h2>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 ml-16">Manage and organize your tasks efficiently</p>
         </div>
-        <button onclick="window.location.href='create.html'" class="fixed bottom-6 right-6 bg-purple-600 hover:bg-purple-700
-                   text-white w-14 h-14 rounded-full shadow-xl
-                   text-3xl flex items-center justify-center" title="Add Todo"> + </button>
+
+        <!-- Tasks Grid -->
+        <div id="todoList" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- Task cards will be injected here by js/home.js -->
+        </div>
+
+        <!-- Empty State (shown when no tasks) -->
+        <div id="emptyState" class="hidden text-center py-16">
+            <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30 rounded-2xl mb-6">
+                <i class="fas fa-clipboard-list text-4xl text-blue-600 dark:text-blue-400"></i>
+            </div>
+            <h3 class="text-2xl font-semibold text-gray-700 dark:text-gray-300 mb-2">No tasks yet</h3>
+            <p class="text-gray-500 dark:text-gray-400 mb-6">Get started by creating your first task</p>
+            <a href="create.html" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl">
+                <i class="fas fa-plus"></i> Create Task
+            </a>
+        </div>
+
+        <!-- Floating Action Button -->
+        <a href="create.html" 
+           class="fixed bottom-8 right-8 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white w-16 h-16 rounded-full shadow-2xl text-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-3xl z-40" 
+           title="Create New Task">
+            <i class="fas fa-plus"></i>
+        </a>
     </main>
-    <!-- FOOTER
-    <footer class="bg-white dark:bg-gray-800 text-center py-4
-                 text-gray-600 dark:text-gray-300 mt-auto shadow-inner"> Professional Footer © 2025 </footer> -->
+
     <!-- FOOTER -->
     <footer class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 mt-auto shadow-inner py-6">
-        <div
-             class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm sm:text-base">
-            <!-- Left: Brand -->
-            <!-- <div class="text-left w-full sm:w-auto">
-                <p class="font-semibold text-purple-600 dark:text-purple-300 text-center sm:text-left">Basic Todo</p>
-            </div> -->
-            <!-- Center: Copyright -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm sm:text-base">
             <div class="text-center w-full sm:w-auto">
                 <p class="font-semibold text-center">Task Manager © 2025</p>
             </div>
-            <!-- Right: Social Links -->
             <div class="text-right w-full sm:w-auto flex flex-col items-center sm:items-end">
-                <p> Say Hi to the creator: <a href="https://www.linkedin.com/in/amritanshu-goutam/" target="_blank"
+                <p> Say Hi to the creator: 
+                    <a href="https://www.linkedin.com/in/amritanshu-goutam/" target="_blank"
                        class="text-purple-600 dark:text-purple-300 hover:text-purple-800 mx-2 transition-colors duration-300"
                        aria-label="LinkedIn Profile">
                         <i class="fa-brands fa-square-linkedin"></i>
@@ -83,18 +131,25 @@
             </div>
         </div>
     </footer>
+
     <!-- INLINE SCRIPTS -->
     <script>
-        document.getElementById('menu-toggle')
-            .addEventListener('click', () => {
-                document.getElementById('mobile-menu').classList.toggle('hidden')
-            })
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
 
+        // Logout handler
         function logout() {
-            localStorage.removeItem('token')
-            window.location.href = 'index.html'
+            if (confirm('Are you sure you want to logout?')) {
+                localStorage.removeItem('token');
+                localStorage.removeItem('role');
+                localStorage.removeItem('user');
+                window.location.href = 'index.html';
+            }
         }
     </script>
+
     <!-- MODULE SCRIPTS -->
     <script type="module" src="js/config.js"></script>
     <script type="module" src="js/home.js"></script>

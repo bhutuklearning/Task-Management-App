@@ -16,15 +16,23 @@ window.onload = async function () {
   const todos = await res.json()
 
   const container = document.getElementById('todoList')
+  const emptyState = document.getElementById('emptyState')
   container.innerHTML = ''
+
+  if (!todos || todos.length === 0) {
+    emptyState.classList.remove('hidden')
+    return
+  }
+
+  emptyState.classList.add('hidden')
 
   todos.forEach(todo => {
     const statusBadge = todo.completed
-      ? `<span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">
-           Completed
+      ? `<span class="inline-flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/30 dark:to-emerald-900/30 text-green-700 dark:text-green-400 text-xs font-semibold rounded-full border border-green-200 dark:border-green-800">
+           <i class="fas fa-check-circle"></i> Completed
          </span>`
-      : `<span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">
-           Pending
+      : `<span class="inline-flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-yellow-100 to-amber-100 dark:from-yellow-900/30 dark:to-amber-900/30 text-yellow-700 dark:text-yellow-400 text-xs font-semibold rounded-full border border-yellow-200 dark:border-yellow-800">
+           <i class="fas fa-clock"></i> Pending
          </span>`
 
     const createdDate = new Date(todo.createdAt)
@@ -35,56 +43,72 @@ window.onload = async function () {
       })
 
     const completeBtn = todo.completed
-      ? `<button disabled class="px-3 py-1 bg-gray-200 text-gray-500 rounded cursor-not-allowed">
-           Completed
+      ? `<button disabled class="flex-1 px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-400 dark:text-gray-500 rounded-lg cursor-not-allowed text-sm font-medium transition-all">
+           <i class="fas fa-check mr-1"></i> Done
          </button>`
       : `<button onclick="markDone('${todo._id}')"
-                 class="px-3 py-1 bg-green-100 text-green-700 rounded hover:bg-green-200 transition">
-           Completed
+                 class="flex-1 px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white rounded-lg text-sm font-medium transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+           <i class="fas fa-check mr-1"></i> Complete
          </button>`
 
     const updateBtn = todo.completed
-      ? `<button disabled class="px-3 py-1 bg-gray-200 text-gray-500 rounded cursor-not-allowed">
-           Update
+      ? `<button disabled class="flex-1 px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-400 dark:text-gray-500 rounded-lg cursor-not-allowed text-sm font-medium transition-all">
+           <i class="fas fa-edit mr-1"></i> Edit
          </button>`
       : `<button onclick="editTodo('${todo._id}')"
-                 class="px-3 py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200 transition">
-           Update
+                 class="flex-1 px-4 py-2 bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white rounded-lg text-sm font-medium transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+           <i class="fas fa-edit mr-1"></i> Edit
          </button>`
 
     const deleteBtn = `<button onclick="deleteTodo('${todo._id}')"
-                             class="px-3 py-1 bg-red-100 text-red-700 rounded hover:bg-red-200 transition">
-                         Delete
+                             class="px-4 py-2 bg-gradient-to-r from-red-500 to-rose-500 hover:from-red-600 hover:to-rose-600 text-white rounded-lg text-sm font-medium transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                         <i class="fas fa-trash mr-1"></i> Delete
                        </button>`
 
     const card = document.createElement('div')
     card.className = `
-      bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-lg
-      border border-gray-200 dark:border-gray-700 p-6 mb-6 transition
+      bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl
+      border border-gray-200 dark:border-gray-700 p-6 transition-all duration-300
+      transform hover:-translate-y-1
+      ${todo.completed ? 'opacity-75' : ''}
     `
 
     card.innerHTML = `
       <div class="flex justify-between items-start mb-4">
-        <h3 class="text-2xl font-semibold ${todo.completed ? 'line-through text-gray-400' : ''}">
-          ${todo.title}
-        </h3>
+        <div class="flex-1">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1 ${todo.completed ? 'line-through text-gray-400 dark:text-gray-500' : ''}">
+            ${todo.title}
+          </h3>
+        </div>
         ${statusBadge}
       </div>
 
-      <p class="text-base text-gray-600 dark:text-gray-400 mb-6 ${todo.completed ? 'line-through' : ''}">
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-6 leading-relaxed ${todo.completed ? 'line-through' : ''}">
         ${todo.description}
       </p>
 
-      <div class="flex gap-3 mb-4">
+      <div class="flex gap-2 mb-4">
         ${completeBtn}
         ${updateBtn}
+      </div>
+      
+      <div class="flex gap-2">
         ${deleteBtn}
       </div>
 
-      <div class="border-t pt-4">
-        <time class="block text-right text-xs text-gray-500 dark:text-gray-400">
-          Created on ${createdDate}
-        </time>
+      <div class="border-t border-gray-200 dark:border-gray-700 pt-4 mt-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+            <i class="fas fa-calendar-alt"></i>
+            <time>Created ${createdDate}</time>
+          </div>
+          ${todo.completed ? `
+            <div class="flex items-center gap-1 text-xs text-green-600 dark:text-green-400">
+              <i class="fas fa-check-circle"></i>
+              <span>Completed</span>
+            </div>
+          ` : ''}
+        </div>
       </div>
     `
 
@@ -99,25 +123,49 @@ window.editTodo = function (id) {
 }
 
 window.deleteTodo = async function (id) {
+  if (!confirm('Are you sure you want to delete this task? This action cannot be undone.')) {
+    return
+  }
+  
   const token = localStorage.getItem('token')
-  await fetch(`${TODO_API}/${id}`, {
-    method: 'DELETE',
-    headers: { Authorization: `Bearer ${token}` }
-  })
-  window.location.reload()
+  try {
+    const res = await fetch(`${TODO_API}/${id}`, {
+      method: 'DELETE',
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    
+    if (res.ok) {
+      window.location.reload()
+    } else {
+      alert('Failed to delete task. Please try again.')
+    }
+  } catch (error) {
+    console.error('Error deleting task:', error)
+    alert('An error occurred. Please try again.')
+  }
 }
 
 window.markDone = async function (id) {
   const token = localStorage.getItem('token')
-  await fetch(`${TODO_API}/${id}`, {
-    method: 'PUT',
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ completed: true })
-  })
-  window.location.reload()
+  try {
+    const res = await fetch(`${TODO_API}/${id}`, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ completed: true })
+    })
+    
+    if (res.ok) {
+      window.location.reload()
+    } else {
+      alert('Failed to mark task as complete. Please try again.')
+    }
+  } catch (error) {
+    console.error('Error marking task as done:', error)
+    alert('An error occurred. Please try again.')
+  }
 }
 
 
